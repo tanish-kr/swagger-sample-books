@@ -1,0 +1,23 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "apis": [
+    {
+      "path": "/apidocs/book_images.{format}",
+      "description": "Book Images"
+    },
+    {
+      "path": "/apidocs/books.{format}",
+      "description": "Books"
+    }
+  ],
+  "authorizations": null,
+  "info": {
+    "title": "Books API",
+    "description": "Books operation API",
+    "contact": "tora.1986.tatsu@gmail.com",
+    "license": "Apache 2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }
+}

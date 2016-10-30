@@ -1,0 +1,262 @@
+{
+  "apiVersion": "v1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "books",
+  "apis": [
+    {
+      "path": "/books",
+      "operations": [
+        {
+          "summary": "Get all books",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Book",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Server Error"
+            }
+          ],
+          "parameters": [
+
+          ],
+          "nickname": "Books#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/books",
+      "operations": [
+        {
+          "summary": "Create a book",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Book",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Server Error"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "object",
+              "description": "Book parameters",
+              "required": true,
+              "$ref": "BookParams"
+            }
+          ],
+          "nickname": "Books#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/books/{id}",
+      "operations": [
+        {
+          "summary": "Get a book",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Book",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Server Error"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Book Id",
+              "required": true
+            }
+          ],
+          "nickname": "Books#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/books/{id}",
+      "operations": [
+        {
+          "summary": "Update a book",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Book",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Server Error"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Book Id",
+              "required": true
+            },
+            {
+              "paramType": "body",
+              "name": "body",
+              "type": "object",
+              "description": "Book parameters",
+              "required": true,
+              "$ref": "BookParams"
+            }
+          ],
+          "nickname": "Books#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/books/{id}",
+      "operations": [
+        {
+          "summary": "Destroy a book",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Book",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 500,
+              "responseModel": null,
+              "message": "Internal Server Error"
+            }
+          ],
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Book Id",
+              "required": true
+            }
+          ],
+          "nickname": "Books#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null,
+  "models": {
+    "BookParams": {
+      "id": "BookParams",
+      "required": [
+        "book",
+        "book_image"
+      ],
+      "properties": {
+        "book": {
+          "type": "object",
+          "description": "Book  object",
+          "$ref": "Book"
+        },
+        "book_image": {
+          "type": "object",
+          "description": "Book image object",
+          "$ref": "BookImage"
+        }
+      },
+      "description": "Book parameters"
+    },
+    "Book": {
+      "id": "Book",
+      "required": [
+        "id",
+        "isbn",
+        "title",
+        "price",
+        "tumbnail"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Book Id"
+        },
+        "isbn": {
+          "type": "string",
+          "description": "Book ISBN code"
+        },
+        "title": {
+          "type": "string",
+          "description": "Book title"
+        },
+        "price": {
+          "type": "integer",
+          "description": "Book price"
+        },
+        "tumbnail": {
+          "type": "string",
+          "description": "Book tumbnail"
+        }
+      },
+      "description": "Book a object"
+    }
+  }
+}

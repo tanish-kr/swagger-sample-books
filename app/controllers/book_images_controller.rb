@@ -1,6 +1,60 @@
 class BookImagesController < ApplicationController
   before_action :set_book_image, only: [:show, :update, :destroy]
 
+  swagger_controller :BookImages, "Book Images"
+
+  swagger_api :index do
+    summary "Get all book images"
+    consumes [ "application/json" ]
+    response :ok, "Success", :BookImage
+    response :not_found
+    response :internal_server_error
+  end
+
+  swagger_api :show do
+    summary "Get a book image"
+    consumes [ "application/json" ]
+    param :path, :id, :integer, :required, "Book image Id"
+    response :ok, "Success", :BookImage
+    response :not_found
+    response :internal_server_error
+  end
+
+  swagger_api :create do
+    summary "Create a book image"
+    consumes [ "application/json" ]
+    param :body, :body, :object, :required, "Book image parameters", { "$ref": "BookImage" }
+    response :ok, "Success", :BookImage
+    response :not_found
+    response :internal_server_error
+  end
+
+  swagger_api :update do
+    summary "Update a book image"
+    consumes [ "application/json" ]
+    param :body, :body, :object, :required, "Book image parameters", { "$ref": "BookImage" }
+    response :ok, "Success", :BookImage
+    response :not_found
+    response :internal_server_error
+  end
+
+  swagger_api :destroy do
+    summary "Destroy a book image"
+    consumes [ "application/json" ]
+    param :path, :id, :integer, :required, "Book image Id"
+    response :ok, "Success", :BookImage
+    response :not_found
+    response :internal_server_error
+  end
+
+  swagger_model :BookImage do
+    description "Book a object"
+    property :id, :integer, :required, "Book image Id"
+    property :book_id, :integer, :required, "Book Id"
+    property :url, :string, :required, "Book image URL"
+    property :alt, :string, :required, "Book image alt"
+  end
+
   # GET /book_images
   def index
     @book_images = BookImage.all
