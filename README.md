@@ -1,24 +1,35 @@
-# README
+# swagger rails sample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Require package
 
-Things you may want to cover:
+- sqlite3
 
-* Ruby version
+## Dependencies install
 
-* System dependencies
+```console
+$ bundle
+```
 
-* Configuration
+## DB setting
 
-* Database creation
+```console
+$ rake db:create
+$ rake db:migrate
+$ rake db:seed
+```
 
-* Database initialization
+## Swagger docs json generate
 
-* How to run the test suite
+```console
+$ rake swagger:docs
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Run
 
-* Deployment instructions
+```console
+$ rails s
+```
 
-* ...
+- swagger access
+
+http://localhost:3000/swagger/
